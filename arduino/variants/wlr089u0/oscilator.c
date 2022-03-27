@@ -40,10 +40,10 @@ void init_system_clock(void)
     MCLK->LPDIV.reg = MCLK_LPDIV_LPDIV(1 << 0);
     MCLK->CPUDIV.reg = MCLK_CPUDIV_CPUDIV(1 << 0);
 
-    enable_XOSC32K();
+    //enable_XOSC32K();
 
-    /* SWITCH GCLK1 TO XOSC32K */
-    gclk_setup(1, GCLK_GENCTRL_GENEN | GCLK_GENCTRL_SRC_XOSC32K);
+    /* SWITCH GCLK1 TO OSCULP32K */
+    gclk_setup(1, GCLK_GENCTRL_GENEN | GCLK_GENCTRL_SRC_OSCULP32K);
 
     /* GCLK_DFLL48M_REF */
     gclk_channel_setup(0, GCLK_PCHCTRL_GEN_GCLK1 | GCLK_PCHCTRL_CHEN | GCLK_PCHCTRL_WRTLOCK); // SET TO GCLK1
