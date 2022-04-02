@@ -38,65 +38,117 @@ extern "C"
 
 #define VARIANT_MCK (48000000ul)
 
-#define NUM_PIN_DESCRIPTION_ENTRIES (63) 
+
+
+enum PinNumber
+{
+    MODULE_PIN_PA07 = 0,
+    MODULE_PIN_PA08,
+    MODULE_PIN_PA27,
+    MODULE_PIN_PA16,
+    MODULE_PIN_PA17,
+    MODULE_PIN_PA18,
+    MODULE_PIN_PA19,
+    MODULE_PIN_PA15,
+    MODULE_PIN_PA14,
+    MODULE_PIN_PB22,
+    MODULE_PIN_PA23,
+    MODULE_PIN_PB23,
+    MODULE_PIN_PB02,
+    MODULE_PIN_PA22,
+    MODULE_PIN_PA25,
+    MODULE_PIN_PA24,
+    MODULE_PIN_PA28,
+    MODULE_PIN_PA05,
+    MODULE_PIN_PA04,
+    MODULE_PIN_PB03,
+    MODULE_PIN_PA06,
+    MODULE_PIN_ADC_PA07,
+    MODULE_PIN_ADC_PA06,
+    MODULE_PIN_I2C_SDA_PA16,
+    MODULE_PIN_I2C_SCL_PA17,
+    MODULE_PIN_STATUS_LED_PA15,
+    MODULE_PIN_SPI_MOSI_PB22,
+    MODULE_PIN_SPI_CS_PA23,
+    MODULE_PIN_SPI_SCK_PB23,
+    MODULE_PIN_SPI_MISO_PB02,
+    MODULE_PIN_SERCOM_RX_PA05,
+    MODULE_PIN_SERCOM_TX_PA04,
+    MODULE_PIN_SUPC_VBAT_PB03,  //TODO
+    MODULE_PIN_RF_SEL_PB31,
+    MODULE_PIN_RF_MOSI_PB30,
+    MODULE_PIN_RF_MISO_PC19,
+    MODULE_PIN_RF_SCK_PC18,
+    MODULE_PIN_RF_NRST_PB15,
+    MODULE_PIN_RF_DIO0_PB16,
+    MODULE_PIN_RF_DIO1_PA11,
+    MODULE_PIN_RF_DIO2_PA12,
+    MODULE_PIN_RF_DIO3_PB17,
+    MODULE_PIN_RF_DIO4_PA10,
+    MODULE_PIN_RF_DIO5_PB00,
+    MODULE_PIN_RF_OTHER_PA09,
+    MODULE_PIN_RF_OTHER_PA13,
+
+    __MODULE_PINS_DESCRIPTIONS_COUNT
+
+};
+
+#define NUM_PIN_DESCRIPTION_ENTRIES (__MODULE_PINS_DESCRIPTIONS_COUNT) 
 
 /* LED from table */
 #define LED_ON                (0) 
 #define LED_OFF               (1) 
 
-#define LED                   (29) 
+#define LED                   PinNumber::MODULE_PIN_STATUS_LED_PA15
 #define LED_BUILTIN           LED
-#define LED_Y                 LED
-#define LED_G                 (30) 
-#define BUTTON                (31) 
 
 /* Analog pins */
-#define PIN_A0                (4)
-#define PIN_A1                (5)
-static const uint8_t A0       = PIN_A0;
-static const uint8_t A1       = PIN_A1;
+//#define PIN_A0                (4)
+//#define PIN_A1                (5)
+//static const uint8_t A0       = PIN_A0;
+//static const uint8_t A1       = PIN_A1;
 
 //#define PIN_DAC0            (14ul)
 //static const uint8_t DAC0   = PIN_DAC0;
 
 #define ADC_RESOLUTION		    (12)
 #define VARIANT_AR_DEFAULT	AR_DEFAULT
-#define REMAP_ANALOG_PIN_ID(pin)	if ( pin < A0 ) pin += A0
+//#define REMAP_ANALOG_PIN_ID(pin)	if ( pin < A0 ) pin += A0
 
 
 
 
 /* Serial from table */
-#define PIN_SERIAL_TX         (27) 
-#define PIN_SERIAL_RX         (28) 
+#define PIN_SERIAL_TX         (PinNumber::MODULE_PIN_SERCOM_TX_PA04)
+#define PIN_SERIAL_RX         (PinNumber::MODULE_PIN_SERCOM_RX_PA05) 
 
 
 /* I2C from table */
-#define PIN_WIRE_SDA          (34) 
-#define PIN_WIRE_SCL          (35) 
+#define PIN_WIRE_SDA          (PinNumber::MODULE_PIN_I2C_SDA_PA16) 
+#define PIN_WIRE_SCL          (PinNumber::MODULE_PIN_I2C_SCL_PA17) 
 
 
 /* SPI from table */
-#define PIN_SPI_MOSI          (36)
-#define PIN_SPI_MISO          (37)
-#define PIN_SPI_SCK           (38)
-#define PIN_SPI_SS            (39)
+#define PIN_SPI_MOSI          (PinNumber::MODULE_PIN_SPI_MOSI_PB22)
+#define PIN_SPI_MISO          (PinNumber::MODULE_PIN_SPI_MISO_PB02)
+#define PIN_SPI_SCK           (PinNumber::MODULE_PIN_SPI_SCK_PB23)
+#define PIN_SPI_SS            (PinNumber::MODULE_PIN_SPI_CS_PA23)
 
 
 /* RF from table */
-#define RF_SEL                (50)  
-#define RF_MOSI               (51)  
-#define RF_MISO               (52)  
-#define RF_SCK                (53)  
-#define RF_RST                (54)   
-#define RF_DIO0               (55)
-#define RF_DIO1               (56)
-#define RF_DIO2               (57)
-#define RF_DIO3               (58)
-#define RF_DIO4               (59)
-#define RF_DIO5               (60)
-#define RF_TCXO               (61)
-#define RF_SWITCH             (62)
+#define RF_SEL                (PinNumber::MODULE_PIN_RF_SEL_PB31)  
+#define RF_MOSI               (PinNumber::MODULE_PIN_RF_MOSI_PB30)  
+#define RF_MISO               (PinNumber::MODULE_PIN_RF_MISO_PC19)  
+#define RF_SCK                (PinNumber::MODULE_PIN_RF_SCK_PC18)  
+#define RF_RST                (PinNumber::MODULE_PIN_RF_NRST_PB15)   
+#define RF_DIO0               (PinNumber::MODULE_PIN_RF_DIO0_PB16)
+#define RF_DIO1               (PinNumber::MODULE_PIN_RF_DIO1_PA11)
+#define RF_DIO2               (PinNumber::MODULE_PIN_RF_DIO2_PA12)
+#define RF_DIO3               (PinNumber::MODULE_PIN_RF_DIO3_PB17)
+#define RF_DIO4               (PinNumber::MODULE_PIN_RF_DIO4_PA10)
+#define RF_DIO5               (PinNumber::MODULE_PIN_RF_DIO5_PB00)
+#define RF_TCXO               (PinNumber::MODULE_PIN_RF_OTHER_PA09)
+#define RF_SWITCH             (PinNumber::MODULE_PIN_RF_OTHER_PA13)
 
 /* * */
 

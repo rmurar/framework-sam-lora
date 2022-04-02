@@ -242,7 +242,7 @@ typedef enum _EPioPeripheral
 	PER_SERCOM        = 2, /* The pin is controlled by the associated signal of peripheral C. */
 	PER_SERCOM_ALT    = 3, /* The pin is controlled by the associated signal of peripheral D. */
 	PER_TIMER         = 4, /* The pin is controlled by the associated signal of peripheral E. */
-  PER_TIMER_ALT     = 5, /* The pin is controlled by the associated signal of peripheral F. */
+    PER_TIMER_ALT     = 5, /* The pin is controlled by the associated signal of peripheral F. */
 	PER_COM           = 6, /* The pin is controlled by the associated signal of peripheral G. */
 	PER_AC_CLK        = 7, /* The pin is controlled by the associated signal of peripheral H. */
 	PER_CCL           = 8, /* The pin is controlled by the associated signal of peripheral I. */
