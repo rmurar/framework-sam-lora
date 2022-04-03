@@ -22,6 +22,8 @@
 #ifndef Arduino_h
 #define Arduino_h
 
+#define ARDUINO_ARCH_SAML
+
 #include <interface.h>
 #include <variant.h>
 

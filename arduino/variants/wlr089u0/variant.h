@@ -96,8 +96,8 @@ enum PinNumber
 #define NUM_PIN_DESCRIPTION_ENTRIES (__MODULE_PINS_DESCRIPTIONS_COUNT) 
 
 /* LED from table */
-#define LED_ON                (0) 
-#define LED_OFF               (1) 
+//#define LED_ON                (0) 
+//#define LED_OFF               (1) 
 
 #define LED                   PinNumber::MODULE_PIN_STATUS_LED_PA15
 #define LED_BUILTIN           LED
