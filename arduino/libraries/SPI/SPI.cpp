@@ -244,4 +244,5 @@ void SPIClass::detachInterrupt()
 
 #ifdef SAMR34XPRO /* not set yet */
 SPIClass SPI(&sercom3, PIN_SPI_MISO, PIN_SPI_SCK, PIN_SPI_MOSI, (SercomSpiTXPad)1, (SercomRXPad)0);
+SPIClass SPI_RF(&sercom4, RF_MISO, RF_SCK, RF_MOSI, (SercomSpiTXPad)1, (SercomRXPad)0);
 #endif

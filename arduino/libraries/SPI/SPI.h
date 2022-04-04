@@ -169,4 +169,6 @@ extern SPIClass SPI1;
 extern SPIClass SPI2;
 extern SPIClass SPI3;
 
+extern SPIClass SPI_RF;
+
 #endif
