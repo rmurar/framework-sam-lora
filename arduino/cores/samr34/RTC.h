@@ -68,7 +68,7 @@ public:
         /* Turn on the digital interface clock */
         MCLK->APBAMASK.reg |= MCLK_APBAMASK_RTC;
         /* Select RTC clock: 1.024kHz from 32KHz external oscillator  */
-        OSC32KCTRL->RTCCTRL.bit.RTCSEL = OSC32KCTRL_RTCCTRL_RTCSEL_XOSC1K_Val;
+        OSC32KCTRL->RTCCTRL.bit.RTCSEL = OSC32KCTRL_RTCCTRL_RTCSEL_ULP1K_Val;
         /* Reset module to hardware defaults. */
         reset();
         /* Setup and Enable. */
