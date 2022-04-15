@@ -111,6 +111,14 @@ extern "C" void SERCOM3_Handler(void)
   Serial1.IrqHandler();
 }
 
+extern "C" void RTC_Handler( void )
+{
+    if (RTC->MODE0.INTFLAG.bit.CMP0) {
+        /* clear flag */
+        RTC->MODE0.INTFLAG.bit.CMP0 = 1;
+    }    
+}
+
 /* * */
 
 void X_initVariant()

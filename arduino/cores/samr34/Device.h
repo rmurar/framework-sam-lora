@@ -42,6 +42,25 @@ public:
 
     int resetFrom() { return get_reset_cause(); }
 
+    static const char* getResetCause()
+    {
+        const char* retStr = "n/a";
+        int cause = get_reset_cause();
+        switch(cause)
+        {
+            case RESET_CAUSE_BACKUP: retStr = "backup reset"; break;
+            case RESET_CAUSE_SOFTWARE: retStr = "software reset"; break;
+            case RESET_CAUSE_WDT: retStr = "WDT"; break;
+            case RESET_CAUSE_EXTERNAL_RESET: retStr=" external reset"; break;
+            case RESET_CAUSE_BOD33: retStr = "BOD33"; break;
+            case RESET_CAUSE_BOD12: retStr = "BOD12"; break;
+            case RESET_CAUSE_POR: retStr = "POR"; break;
+            default: break;
+        }
+
+        return retStr;
+    }
+
     void reset()
     {
         delay(100);

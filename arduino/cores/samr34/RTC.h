@@ -71,6 +71,11 @@ public:
         OSC32KCTRL->RTCCTRL.bit.RTCSEL = OSC32KCTRL_RTCCTRL_RTCSEL_ULP1K_Val;
         /* Reset module to hardware defaults. */
         reset();
+
+        //enable compare interrupt
+        RTC->MODE0.INTENSET.reg = RTC_MODE0_INTENSET_CMP0;
+        RTC->MODE0.EVCTRL.reg = RTC_MODE0_EVCTRL_CMPEO0;
+
         /* Setup and Enable. */
         while (0 == (RTC->MODE0.CTRLA.reg & RTC_MODE0_CTRLA_ENABLE)) // ?!?
         {
@@ -146,7 +151,7 @@ public:
         Enter in sleep and wakeup after seconds 
         use before_sleep() to "kill" your ports pin/mux values
     */
-    void sleep_wakeup(uint32_t second, void (*before_sleep)(void) = NULL)
+    void sleep_wakeup(uint32_t second, void (*before_sleep)(void) = NULL, sleep_mode_e sleep_mode = SLEEP_MODE_BACKUP)
     {
         if (0 == started)
             begin();
@@ -166,7 +171,7 @@ public:
         NVIC_EnableIRQ(RTC_IRQn);
         RTC->MODE0.INTENSET.bit.CMP0 = 1;
 
-        sys_set_sleep_mode(SLEEP_MODE_BACKUP);
+        sys_set_sleep_mode(sleep_mode);
         sys_sleep();
     }
 
