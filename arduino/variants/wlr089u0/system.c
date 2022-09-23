@@ -29,6 +29,22 @@ void system_init(void)
     }
 #endif 
 
+    /* turn on only needed APB peripherals */
+    MCLK->APBAMASK.reg =
+        MCLK_APBAMASK_PM
+        |MCLK_APBAMASK_MCLK
+        |MCLK_APBAMASK_RSTC
+        |MCLK_APBAMASK_OSCCTRL
+        |MCLK_APBAMASK_OSC32KCTRL
+        |MCLK_APBAMASK_SUPC
+        |MCLK_APBAMASK_GCLK
+        |MCLK_APBAMASK_WDT
+        |MCLK_APBAMASK_RTC
+        |MCLK_APBAMASK_EIC
+        |MCLK_APBAMASK_PORT
+        //|MCLK_APBAMASK_TAL
+        ;
+
     init_system_clock();
     init_systick();
 

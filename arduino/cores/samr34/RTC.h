@@ -172,6 +172,7 @@ public:
         RTC->MODE0.INTENSET.bit.CMP0 = 1;
 
         sys_set_sleep_mode(sleep_mode);
+        SCB->SCR |=  (SCB_SCR_SLEEPDEEP_Msk);
         sys_sleep();
     }
 

@@ -38,6 +38,13 @@ extern "C"
 
 #define VARIANT_MCK (48000000ul)
 
+enum {
+    VARIANT_GCLK_MAIN  = 0,                 /**< Main clock */
+    VARIANT_GCLK_TIMER = 1,                 /**< 4/8MHz clock for timers */
+    VARIANT_GCLK_32KHZ = 2,                 /**< 32 kHz clock */
+    VARIANT_GCLK_48MHZ = 3,                 /**< 48MHz clock */
+};
+
 
 
 enum PinNumber
@@ -74,7 +81,7 @@ enum PinNumber
     MODULE_PIN_SPI_MISO_PB02,
     MODULE_PIN_SERCOM_RX_PA05,
     MODULE_PIN_SERCOM_TX_PA04,
-    MODULE_PIN_SUPC_VBAT_PB03,  //TODO
+    MODULE_PIN_SUPC_VBAT_PB03,
     MODULE_PIN_RF_SEL_PB31,
     MODULE_PIN_RF_MOSI_PB30,
     MODULE_PIN_RF_MISO_PC19,
@@ -115,6 +122,8 @@ enum PinNumber
 #define VARIANT_AR_DEFAULT	AR_DEFAULT
 //#define REMAP_ANALOG_PIN_ID(pin)	if ( pin < A0 ) pin += A0
 
+
+#define PIN_SUPC_VBAT         (PinNumber::MODULE_PIN_SUPC_VBAT_PB03)
 
 
 

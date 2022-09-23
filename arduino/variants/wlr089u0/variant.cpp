@@ -68,8 +68,8 @@ const PinDescription g_APinDescription[] = {
   {PORTA, 5, PIO_SERCOM, (PER_ATTR_SERCOM_ALT), (PIN_ATTR_SERCOM), NO_OTHER}, // RX: SERCOM0-1
   {PORTA, 4, PIO_SERCOM, (PER_ATTR_SERCOM_ALT), (PIN_ATTR_SERCOM), NO_OTHER}, // TX: SERCOM0-0
 
-  //supc-vbat - TODO
-  {PORTB, 03, PIO_MULTI, (PER_ATTR_OUTPUT_TYPE_STD), (PIN_ATTR_DIGITAL | PIN_ATTR_EXTINT), TIMER_NONE, ADC_NONE, EINT_3,  GCLK_CCL_NONE},
+  //supc-vbat
+  {PORTB, 03, PIO_MULTI, (PER_ATTR_OUTPUT_TYPE_STD), (PIN_ATTR_DIGITAL | PIN_ATTR_EXTINT | PIN_ATTR_ADC), TIMER_NONE, 0x1D, EINT_3,  GCLK_CCL_NONE},
 
 /******* INTERNAL CONNECTED ****************************************************************************************************************/
 /******* RF SPI PINS  */
